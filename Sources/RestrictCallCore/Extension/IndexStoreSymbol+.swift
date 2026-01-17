@@ -51,6 +51,16 @@ extension IndexStoreSymbol {
             return true
         }
 
+        if let name,
+           let targetModule = target.module,
+           let targetType = target.type,
+           name.matches(pattern: target.name) {
+            let whereClausePattern = "where .* == \(targetModule)\\.\(targetType)\\>"
+            if demangledName.matches(pattern: whereClausePattern) {
+                return true
+            }
+        }
+
         return false
     }
 }
