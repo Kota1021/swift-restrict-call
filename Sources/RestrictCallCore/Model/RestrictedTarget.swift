@@ -34,4 +34,9 @@ extension RestrictedTarget {
             .compactMap { $0 }
             .joined(separator: "\\.")
     }
+
+    var sameTypeConstraintPattern: String? {
+        guard let module, let type else { return nil }
+        return "where .* == \(module)\\.\(type)\\>"
+    }
 }

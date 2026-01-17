@@ -52,6 +52,13 @@ extension IndexStoreSymbol {
             return true
         }
 
+        if let name,
+           let sameTypeConstraintPattern = target.sameTypeConstraintPattern,
+           name.matches(pattern: target.name),
+           demangledName.matches(pattern: sameTypeConstraintPattern) {
+            return true
+        }
+
         return false
     }
 }
