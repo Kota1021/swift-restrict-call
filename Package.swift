@@ -53,6 +53,10 @@ let package = Package(
                 .product(name: "SourceReporter", package: "swift-source-reporter"),
             ]
         ),
+        .target(
+            name: "Examples",
+            path: "Examples"
+        ),
         .plugin(
             name: "RestrictCallBuildToolPlugin",
             capability: .buildTool(),

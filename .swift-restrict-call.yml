@@ -12,6 +12,10 @@ targets:
     module: "Foundation"
     type: "String"
     name: "init\\(data"
+  - reportType: error
+    module: "Examples"
+    type: "MyColor"
+    name: "red"
 # onlyModules:
 #   - RestrictCallCore
 # excludeModules:
