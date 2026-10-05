@@ -21,14 +21,9 @@ func testDirectAccess() {
 }
 
 func testProtocolAccess() {
-    let color2: any Styleable = .red
-    print(color2)
-}
-
-func acceptStyleable(_ style: any Styleable) {
-    print(style)
-}
-
-func testImplicitAccess() {
     acceptStyleable(.red)
+}
+
+func acceptStyleable<T: Styleable>(_ style: T) {
+    print(style)
 }

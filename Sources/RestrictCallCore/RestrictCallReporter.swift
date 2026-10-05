@@ -112,6 +112,17 @@ extension RestrictCallReporter {
     private func reportIfNeeded(for occurrence: IndexStoreOccurrence) {
         let symbol = occurrence.symbol
 
+        if occurrence.location.path?.contains("ContentView.swift") == true {
+            let roles = occurrence.roles
+            let path = occurrence.location.path ?? "nil"
+            print("DEBUG: File=\(path):\(occurrence.location.line)")
+            print("DEBUG: Symbol name=\(symbol.name ?? "nil")")
+            print("DEBUG: Symbol demangled=\(symbol.demangledName ?? "nil")")
+            print("DEBUG: Symbol usr=\(symbol.usr ?? "nil")")
+            print("DEBUG: Roles=\(roles)")
+            print("---")
+        }
+
         for target in self.targets {
             let roles = occurrence.roles
             guard symbol.matches(target: target),
